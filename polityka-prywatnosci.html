@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Polityka prywatności — CzyTuWarto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/tokens.css" />
+<style>
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-background);
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .doc {
+    max-width: 720px;
+    margin-inline: auto;
+    padding: var(--space-16) var(--space-6) var(--space-20);
+  }
+
+  /* ── Nagłówek dokumentu ───────────────────────────────── */
+  .doc__back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-12);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-label);
+    line-height: var(--lh-label);
+    color: var(--color-text-tertiary);
+    text-decoration: none;
+  }
+  .doc__back:hover { color: var(--color-text-secondary); }
+  .doc__back svg { width: 16px; height: 16px; flex: none; }
+  .doc__back { white-space: nowrap; }
+
+  .doc__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-hero);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    text-wrap: balance;
+  }
+  .doc__updated {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-sans);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-label);
+    line-height: var(--lh-label);
+    color: var(--color-text-tertiary);
+  }
+  .doc__rule {
+    border: 0;
+    border-top: var(--hairline) solid var(--color-border);
+    margin: var(--space-10) 0 var(--space-12);
+  }
+
+  /* ── Treść ────────────────────────────────────────────── */
+  .doc h2 {
+    margin: var(--space-16) 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-stat);
+    line-height: var(--lh-stat);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+  }
+  .doc h3 {
+    margin: var(--space-8) 0 var(--space-2);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--color-text-secondary);
+  }
+  .doc p {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-body);
+    line-height: 26px;
+    color: var(--color-text-secondary);
+    text-wrap: pretty;
+  }
+  .doc ul {
+    margin: 0 0 var(--space-4);
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .doc li {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-body);
+    line-height: 26px;
+    color: var(--color-text-secondary);
+  }
+  .doc li::marker { color: var(--color-text-tertiary); }
+  .doc strong { font-weight: var(--fw-semibold); color: var(--color-text-secondary); }
+  .doc a { color: var(--color-text-secondary); text-decoration: underline; text-underline-offset: 2px; }
+  .doc a:hover { color: var(--color-accent-positive); }
+
+  .doc address {
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-body);
+    line-height: 26px;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Tabela cookies ───────────────────────────────────── */
+  .doc table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-4) 0 var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--fs-label);
+    line-height: var(--lh-label);
+  }
+  .doc th,
+  .doc td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--hairline) solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+  .doc th {
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-primary);
+    border-bottom-width: 1px;
+  }
+  .doc td code {
+    font-family: var(--font-ui);
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 600px) {
+    .doc { padding: var(--space-12) var(--space-6) var(--space-16); }
+    .doc__title { font-size: var(--fs-section); line-height: var(--lh-section); }
+  }
+</style>
+</head>
+<body>
+  <main class="doc">
+    <a class="doc__back" href="Landing Page.html">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14 7L9 12L14 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      Powrót na stronę główną
+    </a>
+
+    <h1 class="doc__title">Polityka prywatności CzyTuWarto</h1>
+    <p class="doc__updated"><strong>Ostatnia aktualizacja:</strong> czerwiec 2026</p>
+    <hr class="doc__rule" />
+
+    <h2>1. Administrator danych osobowych</h2>
+    <p>Administratorem Twoich danych osobowych jest:</p>
+    <address>
+      <strong>Metafora Studio</strong><br />
+      Tuszyńska 15/4<br />
+      93-011 Łódź<br />
+      NIP: 9471955832<br />
+      Email: <a href="mailto:kontakt@czytuwarto.pl">kontakt@czytuwarto.pl</a>
+    </address>
+
+    <h2>2. Jakie dane zbieramy i w jakim celu</h2>
+    <p>Poprzez formularz na stronie czytuwarto.pl zbieramy:</p>
+    <ul>
+      <li><strong>Adres e-mail</strong> — aby powiadomić Cię o uruchomieniu produktu CzyTuWarto</li>
+      <li><strong>Typ biznesu który planujesz otworzyć</strong> — aby zrozumieć potrzeby naszych użytkowników i dostosować produkt do najczęściej poszukiwanych kategorii</li>
+    </ul>
+    <p>Twoich danych nie wykorzystujemy do żadnych innych celów niż te wymienione powyżej.</p>
+
+    <h2>3. Podstawa prawna przetwarzania</h2>
+    <p>Twoje dane przetwarzamy na podstawie <strong>Twojej zgody</strong> (art. 6 ust. 1 lit. a RODO) — wyrażonej przez dobrowolne wypełnienie i wysłanie formularza na stronie.</p>
+    <p>Zgodę możesz wycofać w dowolnym momencie pisząc na <a href="mailto:kontakt@czytuwarto.pl">kontakt@czytuwarto.pl</a>. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania dokonanego przed jej wycofaniem.</p>
+
+    <h2>4. Jak długo przechowujemy Twoje dane</h2>
+    <p>Przechowujemy Twoje dane do momentu:</p>
+    <ul>
+      <li>uruchomienia produktu CzyTuWarto i wysłania powiadomienia, lub</li>
+      <li>wycofania przez Ciebie zgody na przetwarzanie, lub</li>
+      <li>upływu 24 miesięcy od zapisu — jeśli produkt nie zostanie uruchomiony w tym czasie</li>
+    </ul>
+    <p>Po tym czasie dane są trwale usuwane.</p>
+
+    <h2>5. Komu przekazujemy Twoje dane</h2>
+    <p>Twoje dane mogą być przekazywane wyłącznie podmiotom które pomagają nam technicznie obsługiwać usługę (tzw. procesorzy danych) — np. dostawcy infrastruktury serwerowej. Podmioty te działają wyłącznie na nasze polecenie i nie mogą wykorzystywać Twoich danych do własnych celów.</p>
+    <p>Nie sprzedajemy Twoich danych. Nie przekazujemy ich reklamodawcom ani innym podmiotom trzecim.</p>
+    <p>Jeśli infrastruktura serwerowa jest zlokalizowana poza Europejskim Obszarem Gospodarczym — zapewniamy odpowiedni poziom ochrony danych zgodnie z wymogami RODO.</p>
+
+    <h2>6. Twoje prawa</h2>
+    <p>Masz prawo do:</p>
+    <ul>
+      <li><strong>Dostępu</strong> do swoich danych — możesz poprosić o informację jakie dane o Tobie przechowujemy</li>
+      <li><strong>Sprostowania</strong> danych — jeśli są nieprawidłowe lub niekompletne</li>
+      <li><strong>Usunięcia</strong> danych („prawo do bycia zapomnianym")</li>
+      <li><strong>Ograniczenia przetwarzania</strong> — możesz poprosić żebyśmy tymczasowo nie przetwarzali Twoich danych</li>
+      <li><strong>Przeniesienia</strong> danych — możesz otrzymać swoje dane w formacie nadającym się do odczytu maszynowego</li>
+      <li><strong>Wycofania zgody</strong> — w dowolnym momencie, bez podania przyczyny</li>
+    </ul>
+    <p>Aby skorzystać z któregokolwiek z tych praw napisz na: <a href="mailto:kontakt@czytuwarto.pl"><strong>kontakt@czytuwarto.pl</strong></a></p>
+    <p>Masz również prawo złożyć skargę do organu nadzorczego — w Polsce jest nim <strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warszawa, www.uodo.gov.pl.</p>
+
+    <h2>7. Bezpieczeństwo danych</h2>
+    <p>Stosujemy odpowiednie środki techniczne i organizacyjne aby chronić Twoje dane przed nieuprawnionym dostępem, utratą lub zniszczeniem. Dane są przesyłane przez szyfrowane połączenie (HTTPS).</p>
+
+    <h2>8. Pliki cookies</h2>
+    <p>Strona czytuwarto.pl używa plików cookies. Poniżej opisujemy jakich i w jakim celu.</p>
+
+    <h3>Cookies niezbędne</h3>
+    <p>Wymagane do prawidłowego działania strony. Nie wymagają Twojej zgody.</p>
+
+    <h3>Cookies analityczne (Google Analytics 4)</h3>
+    <p>Używamy Google Analytics 4 aby zrozumieć jak użytkownicy korzystają ze strony — ile osób ją odwiedza, skąd przychodzą, które elementy są najczęściej używane. Dane są anonimizowane i agregowane. Google może przechowywać dane na serwerach poza UE — szczegóły w polityce prywatności Google: policies.google.com/privacy</p>
+    <p>Cookies GA4 są aktywne wyłącznie po Twojej zgodzie.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Cookie</th>
+          <th>Cel</th>
+          <th>Czas przechowywania</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>_ga</code></td>
+          <td>Rozróżnienie użytkowników</td>
+          <td>2 lata</td>
+        </tr>
+        <tr>
+          <td><code>_ga_*</code></td>
+          <td>Przechowywanie stanu sesji</td>
+          <td>2 lata</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Zarządzanie zgodą</h3>
+    <p>Przy pierwszej wizycie na stronie zobaczysz baner z możliwością zaakceptowania lub odrzucenia cookies analitycznych i reklamowych. Możesz zmienić swój wybór w dowolnym momencie klikając „Ustawienia cookies" w stopce strony.</p>
+    <p>Odrzucenie cookies analitycznych i reklamowych nie wpływa na możliwość korzystania ze strony ani zapisania się na waitlistę.</p>
+
+    <h2>9. Zmiany polityki prywatności</h2>
+    <p>Możemy aktualizować tę politykę gdy zmienią się nasze usługi lub przepisy prawa. O istotnych zmianach poinformujemy przez aktualizację daty na górze tego dokumentu.</p>
+
+    <h2>10. Kontakt</h2>
+    <p>W sprawach dotyczących ochrony danych osobowych skontaktuj się z nami:</p>
+    <address>
+      <strong>Email:</strong> <a href="mailto:kontakt@czytuwarto.pl">kontakt@czytuwarto.pl</a><br />
+      <strong>Adres:</strong> Metafora Studio, Tuszyńska 15/4, 93-011 Łódź
+    </address>
+  </main>
+</body>
+</html>

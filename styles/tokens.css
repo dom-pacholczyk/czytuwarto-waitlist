@@ -1,0 +1,98 @@
+/* ──────────────────────────────────────────────────────────────
+   CzyTuWarto — Design System tokens
+   Wyciągnięte 1:1 z pliku Figma "CTW _ Web.fig".
+   Wszystkie komponenty referują WYŁĄCZNIE te zmienne (zero hardkodów).
+   ────────────────────────────────────────────────────────────── */
+:root {
+  /* ── Kolory ── */
+  --color-background:        #ffffff;   /* główne tło strony */
+  --color-surface:           #ffffff;   /* karty / kafelki */
+  --color-background-subtle: #f6f6f6;   /* jasne pasy-sekcje (band) */
+  --color-chip:              #f2f2f2;   /* tło kwadracika z ikoną 32×32 */
+  --color-placeholder:       #d9d9d9;   /* placeholdery obrazów / map */
+
+  --color-text-primary:      #000000;   /* liczby, insighty (headline), ikony */
+  --color-text-secondary:    #333333;   /* nagłówki, body, overline */
+  --color-text-tertiary:     #767676;   /* opisy, podpisy, label statów — WCAG AA na bieli */
+
+  --color-border:            #e4e4e4;   /* obramowania kart (inset ring 1px) */
+  --color-divider:           #e4e4e4;   /* pionowe separatory statystyk (StatRow) */
+
+  /* ikony — własne tokeny, odsprzężone od tekstu */
+  --color-icon:              #333333;   /* domyślna ikona (chip, bullet) — ciemny szary jak tekst */
+  --color-icon-muted:        #828282;   /* ikony drugorzędne (✗ nieaktywne, hover „?") */
+  --color-icon-help:         #bdbdbd;   /* ikona pomocy „?" w spoczynku */
+
+  /* akcenty — używane oszczędnie, niemal wyłącznie na wykresach/ikonach */
+  --color-accent-positive:   #219653;   /* zielony */
+  --color-accent-positive-soft: #8fce9f; /* jasna zieleń — start wypełnienia CTW */
+  --color-accent-positive-deep: #145536; /* ciemna, nasycona zieleń — koniec wypełnienia CTW */
+  --color-accent-warning:    #f2994a;   /* pomarańczowy */
+  --color-accent-highlight:  #9747ff;   /* fioletowy (stroke) */
+
+  /* ── Typografia ── */
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ui:   "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --fs-hero: 48px;     --lh-hero: 56px;     /* tytuł raportu */
+  --fs-section: 40px;  --lh-section: 48px;  /* nagłówki sekcji + wielka liczba */
+  --fs-stat: 24px;     --lh-stat: 24px;     /* liczba w statItem */
+  --fs-body: 16px;     --lh-body: 24px;     /* insight headline, body */
+  --fs-label: 14px;    --lh-label: 20px;    /* label pod statystyką */
+  --fs-small: 12px;    --lh-small: 20px;    /* overline, opis, nawigacja */
+  --fs-tiny: 10px;     --lh-tiny: 16px;     /* najdrobniejsze etykiety */
+
+  --fw-regular: 400;
+  --fw-medium: 500;    /* liczby, insight headline */
+  --fw-semibold: 600;  /* nagłówki / tytuły */
+
+  --tracking-tight: -0.01em;  /* hero, section, stat */
+
+  /* ── Spacing (skala odstępów obecna w pliku) ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;     /* padding kafelka, gap w siatkach */
+  --space-8: 32px;
+  --space-10: 40px;    /* gap nagłówek → treść */
+  --space-12: 48px;    /* gap w rzędzie statystyk (StatRow) */
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-30: 120px;   /* padding pionowy (góra/dół) bandu sekcji */
+  --section-gap: 120px;/* odstęp między sekcjami w obrębie jednego tła */
+
+  /* ── Rozmiary atomów ── */
+  --chip-size: 32px;       /* IconChip box */
+  --chip-icon-size: 20px;  /* ikona w chipie */
+  --chip-size-lg: 40px;      /* IconChip — wariant duży (kafelki insightów) */
+  --chip-icon-size-lg: 24px; /* ikona w dużym chipie */
+  --icon-size: 16px;       /* domyślna ikona inline (np. "?") */
+  --icon-size-lg: 20px;    /* ikona w liście / wewnątrz chipa (tick/cross) */
+  --tile-min-height: 248px;/* min. wysokość InsightTile */
+  --stat-item-height: 56px;/* wysokość statItem/small (=wys. separatora w StatRow) */
+  --stat-item-width: 144px;/* stała szerokość statItem/small (fix, nie hug) */
+  --stat-divider-height: 32px;/* wysokość separatora w StatRow (wspólna dla wszystkich) */
+
+  /* ── Border-radius ── */
+  --radius-xs: 4px;       /* lekko zaokrąglone wierzchołki słupków */
+  --radius-chip: 8px;      /* kwadracik ikony */
+  --radius-card: 24px;     /* insightTile */
+  --radius-section: 32px;  /* duży band sekcji */
+  --radius-pill: 999px;    /* toggle Mapa/Tabela */
+
+  /* ── Hairline (1px) ── */
+  /* Pojedynczy piksel jako token — separatory, ringi, bordery. */
+  --hairline: 1px;
+
+  /* ── Pozostałe ── */
+  --bullet-size: 6px;      /* kropka w ListRow gdy brak ikony */
+  --measure-heading: 800px;/* max szerokość nagłówka sekcji (center) */
+  --page-max: 1440px;      /* max szerokość strony / Topbar */
+
+  /* ── Cienie / ringi ── */
+  /* W pliku nie ma rozmytych cieni — separacja kart to inset ring 1px. */
+  --ring-border: inset 0 0 0 var(--hairline) var(--color-border);
+  /* Jedyny rozmyty cień w systemie: aktywny segment SegmentToggle. */
+  --shadow-raised: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
