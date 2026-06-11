@@ -513,6 +513,7 @@
       grid-template-columns: 1fr;
       row-gap: var(--space-8);
       padding-block: var(--space-2);
+      margin-top: 16px; /* odstęp pod logo — całość treści 16px niżej */
     }
     .intro { max-width: 560px; margin-inline: auto; }
     /* Rozwiązanie 3: telefon u góry, twarde ucięcie na wysokości wskaźnika CTW */
@@ -565,6 +566,7 @@
     .field--email.field--error:focus-within { box-shadow: none; }
 
     .field--email .field__input {
+      flex: none; /* bez tego flex:1 (basis 0%) z kolumnowego layoutu kasuje height:64px → input kurczy się ~do tekstu */
       height: 64px;
       padding: 0 var(--space-6);
       border-radius: var(--radius-pill);
