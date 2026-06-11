@@ -1,0 +1,24 @@
+{
+  "name": "waitlist-lp",
+  "version": "1.0.0",
+  "description": "## Overview Pre-launch landing page produktu **CzyTuWarto** (narzędzie do oceny lokalizacji pod biznes stacjonarny). Cel strony: zebrać zapisy na waitlistę. Układ dwukolumnowy: po lewej hero z rotującym nagłówkiem + formularz zapisu, po prawej statyczny mockup telefonu z podglądem raportu. Dodatkowo: cookie consent banner i osobna podstrona polityki prywatności.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dom-pacholczyk/czytuwarto-waitlist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dom-pacholczyk/czytuwarto-waitlist/issues"
+  },
+  "homepage": "https://github.com/dom-pacholczyk/czytuwarto-waitlist#readme",
+  "dependencies": {
+    "pg": "^8.21.0"
+  },
+  "type": "module"
+}

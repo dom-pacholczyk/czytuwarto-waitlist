@@ -663,9 +663,23 @@
           return;
         }
 
-        // Frontend-only: dane nigdzie nie lecą (backend podepnie Code osobno).
-        form.classList.add('is-hidden');
-        success.classList.add('is-visible');
+        // Wyślij do backendu (Vercel Serverless → Supabase). Sukces pokazujemy dopiero po 200.
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email.value.trim(), vertical: select.value })
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('http ' + res.status);
+            form.classList.add('is-hidden');
+            success.classList.add('is-visible');
+          })
+          .catch(function () {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Spróbuj ponownie'; }
+          });
       });
     })();
 
