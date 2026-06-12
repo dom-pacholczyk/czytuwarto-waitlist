@@ -63,6 +63,41 @@
   .brand__mark { width: 24px; height: 24px; display: block; }
   .brand__word { height: 17px; width: auto; display: block; }
 
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .badge {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    height: 28px;
+    padding: 0 var(--space-3);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    box-shadow: var(--ring-border);
+    font-family: var(--font-ui);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-small);
+    line-height: 1;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+  }
+  .badge__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent-positive);
+    flex: none;
+  }
+  /* Desktop: badge nad nagłówkiem (w lewej kolumnie); w headerze ukryty */
+  .badge--intro { align-self: flex-start; margin-bottom: var(--space-2); }
+  .badge--header { display: none; }
+
   .main {
     flex: 1;
     display: grid;
@@ -529,6 +564,9 @@
 
   @media (max-width: 900px) {
     .page { padding: var(--space-6) var(--space-6); }
+    /* Mobile: badge wraca do headera przy logo (do prawej); w intro ukryty */
+    .badge--intro { display: none; }
+    .badge--header { display: inline-flex; }
     .main {
       grid-template-columns: 1fr;
       row-gap: var(--space-8);
@@ -618,11 +656,13 @@
         <img class="brand__mark" src="assets/lp/logo-mark.svg" alt="" />
         <img class="brand__word" src="assets/lp/logo-word.svg" alt="CzyTuWarto" />
       </a>
+      <span class="badge badge--header"><span class="badge__dot" aria-hidden="true"></span>Już wkrótce</span>
     </header>
 
     <main class="main">
       <section class="intro">
         <div class="intro__copy">
+          <span class="badge badge--intro"><span class="badge__dot" aria-hidden="true"></span>Już wkrótce</span>
           <h1 class="intro__title" aria-label="Zanim otworzysz salon fryzjerski, sprawdź, czy tu warto">
             <span class="intro__line">Zanim otworzysz</span>
             <span class="intro__line intro__line--rotator"><span class="rotator"><span class="rotator__text">salon fryzjerski</span><span class="rotator__caret" aria-hidden="true"></span></span><span class="rotator__comma">,</span></span>
