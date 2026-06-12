@@ -1095,6 +1095,23 @@
       var settings = document.getElementById('cookie-settings');
       if (!banner) return;
 
+      // Google Analytics (GA4) — ładowany TYLKO po zgodzie na cookies (RODO). Idempotentny.
+      var gaLoaded = false;
+      function loadGA() {
+        if (gaLoaded) return;
+        gaLoaded = true;
+        var ID = 'G-VYZKMD13YE';
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', ID);
+      }
+
       function show() {
         banner.hidden = false;
         banner.classList.remove('is-hiding');
@@ -1109,13 +1126,16 @@
       }
       function choose(value) {
         try { localStorage.setItem(KEY, value); } catch (e) {}
-        // Frontend-only: faktyczne ładowanie GA podepnie Code po stronie backendu.
+        if (value === 'accepted') loadGA(); // GA odpalamy dopiero po akceptacji
         hide();
       }
 
       var stored = null;
       try { stored = localStorage.getItem(KEY); } catch (e) {}
-      if (stored === 'accepted' || stored === 'rejected') {
+      if (stored === 'accepted') {
+        banner.hidden = true;
+        loadGA(); // wracający gość, który już wcześniej zaakceptował
+      } else if (stored === 'rejected') {
         banner.hidden = true;
       } else {
         show();
