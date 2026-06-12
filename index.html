@@ -609,31 +609,6 @@
     .footer { justify-content: center; text-align: center; }
   }
 
-  /* ── Header: logo lewo / badge prawo ── */
-  header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
-
-  /* ── Badge „Już wkrótce" (hero na desktop, nav na mobile). Styl w klasie — inline display:inline-block
-     nadpisywałby display:none z media query (specyficzność), więc badge nie chowałby się na mobile. ── */
-  .badge-soon {
-    background: var(--color-accent-positive);
-    color: #ffffff;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 12px;
-    border-radius: 999px;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-  .badge-soon-hero { margin-bottom: 16px; }
-  @media (max-width: 768px) {
-    .badge-soon-hero { display: none; }
-    .badge-soon-nav { display: inline-block; }
-  }
-  @media (min-width: 769px) {
-    .badge-soon-hero { display: inline-block; }
-    .badge-soon-nav { display: none; }
-  }
 </style>
 </head>
 <body>
@@ -643,13 +618,11 @@
         <img class="brand__mark" src="assets/lp/logo-mark.svg" alt="" />
         <img class="brand__word" src="assets/lp/logo-word.svg" alt="CzyTuWarto" />
       </a>
-      <span class="badge-soon badge-soon-nav">Już wkrótce</span>
     </header>
 
     <main class="main">
       <section class="intro">
         <div class="intro__copy">
-          <span class="badge-soon badge-soon-hero">Już wkrótce</span>
           <h1 class="intro__title" aria-label="Zanim otworzysz salon fryzjerski, sprawdź, czy tu warto">
             <span class="intro__line">Zanim otworzysz</span>
             <span class="intro__line intro__line--rotator"><span class="rotator"><span class="rotator__text">salon fryzjerski</span><span class="rotator__caret" aria-hidden="true"></span></span><span class="rotator__comma">,</span></span>
