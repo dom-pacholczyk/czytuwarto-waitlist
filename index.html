@@ -24,6 +24,22 @@
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="/assets/lp/favicon.png">
 <link rel="apple-touch-icon" href="/assets/lp/favicon.png">
+
+<!-- Google tag (gtag.js) — Consent Mode v2: tag ładuje się zawsze, ale cookies/śledzenie OFF do zgody -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-VYZKMD13YE');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYZKMD13YE"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
@@ -1095,21 +1111,16 @@
       var settings = document.getElementById('cookie-settings');
       if (!banner) return;
 
-      // Google Analytics (GA4) — ładowany TYLKO po zgodzie na cookies (RODO). Idempotentny.
-      var gaLoaded = false;
-      function loadGA() {
-        if (gaLoaded) return;
-        gaLoaded = true;
-        var ID = 'G-VYZKMD13YE';
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { window.dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', ID);
+      // Consent Mode v2 — tag GA jest już w <head>; po zgodzie tylko przełączamy na pełne śledzenie.
+      function grantConsent() {
+        if (typeof window.gtag === 'function') {
+          window.gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted'
+          });
+        }
       }
 
       function show() {
@@ -1126,7 +1137,7 @@
       }
       function choose(value) {
         try { localStorage.setItem(KEY, value); } catch (e) {}
-        if (value === 'accepted') loadGA(); // GA odpalamy dopiero po akceptacji
+        if (value === 'accepted') grantConsent(); // zgoda → pełne śledzenie
         hide();
       }
 
@@ -1134,7 +1145,7 @@
       try { stored = localStorage.getItem(KEY); } catch (e) {}
       if (stored === 'accepted') {
         banner.hidden = true;
-        loadGA(); // wracający gość, który już wcześniej zaakceptował
+        grantConsent(); // wracający gość, który już wcześniej zaakceptował
       } else if (stored === 'rejected') {
         banner.hidden = true;
       } else {
